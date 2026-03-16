@@ -1,4 +1,4 @@
-# code-principles
+# .principles
 
 **Give your AI coding agent the mindset of a principled software engineer.**
 
