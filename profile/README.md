@@ -76,6 +76,7 @@ These are **AI commands, not CLI tools** — you use natural language:
 | `/prime` | Loads the full principle hierarchy into the AI's context before you write a line — code, doc, infra, or otherwise |
 | `/audit current changes` | Reviews only what changed since last commit, grouped by severity |
 | `/audit the payment module` | Reviews a specific area — you describe it, the AI finds it |
+| `/audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
 
 `/prime` is the key step: principles active *while* you work, not just *after*. `/audit` is the quality gut-check — not just bugs, but *"is this artifact well-principled?"*
 
@@ -83,13 +84,11 @@ These are **AI commands, not CLI tools** — you use natural language:
 
 ## 📚 What's included
 
-228+ principles across 16 namespaces, actively growing:
+**278 principles across 22 namespaces:**
 
-**SOLID · Gang of Four · GRASP · DRY · KISS · YAGNI · Clean Architecture · DDD · CQRS · Event Sourcing · 12-Factor · OWASP Top 10 · Functional Programming · Database Design · Security Architecture · Package Design · Concurrency · Performance · Observability · API Design · Testing Strategy · and more**
+**SOLID · Gang of Four · GRASP · DRY · KISS · YAGNI · Clean Architecture · DDD · CQRS · Event Sourcing · 12-Factor · OWASP Top 10 · Functional Programming · Database Design · Security Architecture (all 8 Saltzer & Schroeder) · Package Design · Concurrency · Performance · Observability · API Design · Testing Strategy · Enterprise Integration Patterns · Continuous Delivery · Pipeline · Schema Design · Configuration · Documentation · Accessibility (WCAG 2.1) · Error Handling · All 22 Fowler Code Smells · and more**
 
-Every principle cites a verifiable source — book with ISBN, RFC, or paper with DOI. 45 shipped groups (`@spring-boot`, `@react`, `@microservices`, `@security-focused`, `@fp`, `@db`, `@java`, `@kotlin`, `@rust`, …) bundle related principles for common stacks and languages. Many principles include **code examples and diagrams** — not just a definition, but a demonstration of the principle in practice.
-
-New namespaces in progress: continuous delivery, hexagonal architecture, and more. See [TODO.md](https://github.com/dot-principles/principles/blob/main/TODO.md).
+Every principle cites a verifiable source — book with ISBN, RFC, or paper with DOI. **52 shipped groups** (`@spring-boot`, `@react`, `@microservices`, `@security-focused`, `@a11y`, `@pipeline`, `@container`, `@schema`, `@eip`, `@fp`, `@db`, `@java`, `@kotlin`, `@rust`, `@docs-as-code`, …) bundle related principles for common stacks and languages. Many principles include **code examples and diagrams** — not just a definition, but a demonstration of the principle in practice.
 
 ---
 
@@ -102,4 +101,4 @@ New namespaces in progress: continuous delivery, hexagonal architecture, and mor
 
 ## Status
 
-v0.2.0 — proof of concept. Errors exist, gaps exist, groupings are opinionated. See the [Disclaimer](https://github.com/dot-principles/principles/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.5.0 — proof of concept. Groupings are opinionated, and some coverage gaps remain. See the [Disclaimer](https://github.com/dot-principles/principles/blob/main/DISCLAIMER.md). Contributions are welcome.
