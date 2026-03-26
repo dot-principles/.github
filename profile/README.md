@@ -4,6 +4,8 @@
 
 A curated catalog of engineering principles, organized into a `.principles` hierarchy that projects declare to guide AI-assisted work across all "X as Code" artifact types.
 
+📦 **[dot-principles/principles](https://github.com/dot-principles/principles)** — principle catalog, groups, layer model, and slash commands
+
 ---
 
 ## 💡 Why `.principles`?
@@ -72,9 +74,9 @@ These are **AI commands, not CLI tools** — you use natural language:
 
 | Command | What it does |
 |---|---|
-| `/scout` | Analyzes your project, detects stack and domain, writes `.principles` files |
-| `/prime` | Loads the full principle hierarchy into the AI's context before you write a line — code, doc, infra, or otherwise |
-| `/audit current changes` | Reviews only what changed since last commit, grouped by severity |
+| `/scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then compiles all active principles into a block and injects it into `AGENTS.md`, `.claude/rules/principles.md`, and `.github/copilot-instructions.md` |
+| `/prime` | Loads the full principle hierarchy into the AI's context before you write a line — reads from the compiled block (fast path) if available, otherwise walks the `.principles` tree |
+| `/audit current changes` | Reviews only what changed since last commit, grouped by severity — reads from compiled block (fast path) if available |
 | `/audit the payment module` | Reviews a specific area — you describe it, the AI finds it |
 | `/audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
 
@@ -84,7 +86,7 @@ These are **AI commands, not CLI tools** — you use natural language:
 
 ## 📚 What's included
 
-**278 principles across 22 namespaces:**
+**373 principles across 24 namespaces:**
 
 **SOLID · Gang of Four · GRASP · DRY · KISS · YAGNI · Clean Architecture · DDD · CQRS · Event Sourcing · 12-Factor · OWASP Top 10 · Functional Programming · Database Design · Security Architecture (all 8 Saltzer & Schroeder) · Package Design · Concurrency · Performance · Observability · API Design · Testing Strategy · Enterprise Integration Patterns · Continuous Delivery · Pipeline · Schema Design · Configuration · Documentation · Accessibility (WCAG 2.1) · Error Handling · All 22 Fowler Code Smells · and more**
 
@@ -92,13 +94,12 @@ Every principle cites a verifiable source — book with ISBN, RFC, or paper with
 
 ---
 
-## 📦 Repositories
+## 📦 Related
 
-- [**.principles**](https://github.com/dot-principles/principles) — the principle catalog, groups, layer model, and slash commands
 - [**Plain-Text-as-Code**](https://github.com/Plain-Text-as-Code) — the manifest behind the approach: version-controlled plain text as a first-class engineering practice
 
 ---
 
 ## Status
 
-v0.5.0 — proof of concept. Groupings are opinionated, and some coverage gaps remain. See the [Disclaimer](https://github.com/dot-principles/principles/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.6.0 — proof of concept. 373 principles, 24 namespaces. Install is repo-only (`./install.sh all <project-dir>`); global install and Cursor support have been removed. Groupings are opinionated, and some coverage gaps remain. See the [Disclaimer](https://github.com/dot-principles/principles/blob/main/DISCLAIMER.md). Contributions are welcome.
