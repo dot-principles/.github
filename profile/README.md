@@ -4,7 +4,7 @@
 
 A curated catalog of engineering principles, organized into a `.principles` hierarchy that projects declare to guide AI-assisted work across all "X as Code" artifact types.
 
-📦 **[dot-principles/principles](https://github.com/dot-principles/principles)** — principle catalog, groups, layer model, and slash commands
+📦 **[dot-principles/principles](https://github.com/dot-principles/dot-principles)** — principle catalog, groups, layer model, and slash commands
 
 ---
 
