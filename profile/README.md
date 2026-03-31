@@ -1,6 +1,6 @@
 # .principles
 
-**Select the engineering principles you want your AI agent to apply — for code, docs, infrastructure, configuration, schemas, and pipelines.**
+**Bring your engineering judgment into every AI-assisted review — across code, docs, infrastructure, configuration, schemas, and pipelines.**
 
 A curated catalog of engineering principles, organized into a `.principles` hierarchy that projects declare to guide AI-assisted work across all "X as Code" artifact types.
 
@@ -17,6 +17,8 @@ AI agents already know SOLID, GoF, OWASP, DDD, Clean Architecture, 12-Factor, an
 **`.principles` is the bridge between what the AI knows and what it should focus on.** It doesn't teach the AI — it gives it your *intent*. And this applies not just to source code, but to any artifact type treated as code: docs, infrastructure, configuration, schemas, pipelines.
 
 > 🎯 The AI writes the code. You bring the craft.
+
+Unlike a human reviewer, it applies all 373 principles with the same rigour to file 47 as to file 1 — never tired, never bored, never skipping a pattern it has seen a hundred times before.
 
 ---
 
