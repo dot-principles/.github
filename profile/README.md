@@ -1,6 +1,6 @@
 # .principles
 
-**Bring your engineering judgment into every AI-assisted review — across code, docs, infrastructure, configuration, schemas, and pipelines.**
+**Select the engineering principles you want your AI agent to apply — for code, docs, infrastructure, configuration, schemas, and pipelines.**
 
 A curated catalog of engineering principles, organized into a `.principles` hierarchy that projects declare to guide AI-assisted work across all "X as Code" artifact types.
 
@@ -18,7 +18,7 @@ AI agents already know SOLID, GoF, OWASP, DDD, Clean Architecture, 12-Factor, an
 
 > 🎯 The AI writes the code. You bring the craft.
 
-Unlike a human reviewer, it applies all 373 principles with the same rigour to file 47 as to file 1 — never tired, never bored, never skipping a pattern it has seen a hundred times before.
+Unlike a human reviewer, it applies all 375 principles with the same rigour to file 47 as to file 1 — never tired, never bored, never skipping a pattern it has seen a hundred times before.
 
 ---
 
@@ -76,9 +76,9 @@ These are **AI commands, not CLI tools** — you use natural language:
 
 | Command | What it does |
 |---|---|
-| `/scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then compiles all active principles into a block and injects it into `AGENTS.md`, `.claude/rules/principles.md`, and `.github/copilot-instructions.md` |
-| `/prime` | Loads the full principle hierarchy into the AI's context before you write a line — reads from the compiled block (fast path) if available, otherwise walks the `.principles` tree |
-| `/audit current changes` | Reviews only what changed since last commit, grouped by severity — reads from compiled block (fast path) if available |
+| `/scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits per-group principle files to `.github/instructions/` (Copilot Code Review) and `.claude/rules/` (Claude Code) — one file per active group, each targeting only the relevant file globs |
+| `/prime` | Loads the full principle hierarchy into the AI's context before you write a line — discovers principles from per-group files (fast path) if available, otherwise walks the `.principles` tree |
+| `/audit current changes` | Reviews only what changed since last commit, grouped by severity — discovers principles from per-group files (fast path) if available |
 | `/audit the payment module` | Reviews a specific area — you describe it, the AI finds it |
 | `/audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
 
@@ -88,7 +88,7 @@ These are **AI commands, not CLI tools** — you use natural language:
 
 ## 📚 What's included
 
-**373 principles across 24 namespaces:**
+**375 principles across 24 namespaces:**
 
 **SOLID · Gang of Four · GRASP · DRY · KISS · YAGNI · Clean Architecture · DDD · CQRS · Event Sourcing · 12-Factor · OWASP Top 10 · Functional Programming · Database Design · Security Architecture (all 8 Saltzer & Schroeder) · Package Design · Concurrency · Performance · Observability · API Design · Testing Strategy · Enterprise Integration Patterns · Continuous Delivery · Pipeline · Schema Design · Configuration · Documentation · Accessibility (WCAG 2.1) · Error Handling · All 22 Fowler Code Smells · and more**
 
@@ -104,4 +104,4 @@ Every principle cites a verifiable source — book with ISBN, RFC, or paper with
 
 ## Status
 
-v0.6.0 — proof of concept. 373 principles, 24 namespaces. Install is repo-only (`./install.sh all <project-dir>`); global install and Cursor support have been removed. Groupings are opinionated, and some coverage gaps remain. See the [Disclaimer](https://github.com/dot-principles/principles/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.8.1 — proof of concept. 375 principles, 24 namespaces, 52 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/principles/blob/main/DISCLAIMER.md). Contributions are welcome.
