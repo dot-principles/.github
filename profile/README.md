@@ -8,6 +8,8 @@ A curated catalog of engineering principles, organized into a `.principles` hier
 
 📦 **[dot-principles/dot-principles](https://github.com/dot-principles/dot-principles)** — principle catalog, groups, layer model, and slash commands
 
+> 🎬 **New here?** See the [live demo walkthrough](https://github.com/dot-principles/dot-principles/blob/main/demo/presentation.md) for a quick tour.
+
 ---
 
 ## 💡 Why `.principles`?
