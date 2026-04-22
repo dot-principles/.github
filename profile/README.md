@@ -41,7 +41,7 @@ The system detects the artifact type of the file being reviewed and loads the ri
 | **Schema** | `.proto`, `.graphql`, `openapi.yaml`, `schema.sql`, … | Backward compatibility, self-describing, consistent naming, … |
 | **Pipeline** | `.github/workflows/`, `Jenkinsfile`, … | Idempotency, minimal permissions, no secrets in logs, … |
 
-Run `/audit README.md` and you get doc-specific findings. Run `/audit main.tf` and you get IaC-specific findings. The right principles fire for the right artifact — without any manual configuration.
+Run `/dot-audit README.md` and you get doc-specific findings. Run `/dot-audit main.tf` and you get IaC-specific findings. The right principles fire for the right artifact — without any manual configuration.
 
 ---
 
@@ -73,20 +73,20 @@ Before coding or reviewing, the AI walks up from the file to the git root, merge
 `.principles` supports a **shift-left quality loop** where principles are active *before and during* work, not just when auditing:
 
 ```
-🔭 /scout  →  ⚡ /prime  →  ✍️ work  →  🔎 /audit  →  🔧 fix  →  🔎 /audit  →  ✅ done
+🔭 /dot-scout  →  ⚡ /dot-prime  →  ✍️ work  →  🔎 /dot-audit  →  🔧 fix  →  🔎 /dot-audit  →  ✅ done
 ```
 
 These are **AI commands, not CLI tools** — you use natural language:
 
 | Command | What it does |
 |---|---|
-| `/scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits per-group principle files to `.github/instructions/` (Copilot Code Review) and `.claude/rules/` (Claude Code) — one file per active group, each targeting only the relevant file globs |
-| `/prime` | Loads the full principle hierarchy into the AI's context before you write a line — discovers principles from per-group files (fast path) if available, otherwise walks the `.principles` tree |
-| `/audit current changes` | Reviews only what changed since last commit, grouped by severity — discovers principles from per-group files (fast path) if available |
-| `/audit the payment module` | Reviews a specific area — you describe it, the AI finds it |
-| `/audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
+| `/dot-scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits per-group principle files to `.github/instructions/` (Copilot Code Review) and `.claude/rules/` (Claude Code) — one file per active group, each targeting only the relevant file globs |
+| `/dot-prime` | Loads the full principle hierarchy into the AI's context before you write a line — discovers principles from per-group files (fast path) if available, otherwise walks the `.principles` tree |
+| `/dot-audit current changes` | Reviews only what changed since last commit, grouped by severity — discovers principles from per-group files (fast path) if available |
+| `/dot-audit the payment module` | Reviews a specific area — you describe it, the AI finds it |
+| `/dot-audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
 
-`/prime` is the key step: principles active *while* you work, not just *after*. `/audit` is the quality gut-check — not just bugs, but *"is this artifact well-principled?"*
+`/dot-prime` is the key step: principles active *while* you work, not just *after*. `/dot-audit` is the quality gut-check — not just bugs, but *"is this artifact well-principled?"*
 
 ---
 
@@ -96,7 +96,7 @@ These are **AI commands, not CLI tools** — you use natural language:
 
 **SOLID · Gang of Four · GRASP · DRY · KISS · YAGNI · Clean Architecture · DDD · CQRS · Event Sourcing · 12-Factor · OWASP Top 10 · Functional Programming · Database Design · Security Architecture (all 8 Saltzer & Schroeder) · Package Design · Concurrency · Performance · Observability · API Design · Testing Strategy · Enterprise Integration Patterns · Continuous Delivery · Pipeline · Schema Design · Configuration · Documentation · Accessibility (WCAG 2.1) · Error Handling · All 22 Fowler Code Smells · and more**
 
-Every principle cites a verifiable source — book with ISBN, RFC, or paper with DOI. **52 shipped groups** (`@spring-boot`, `@react`, `@microservices`, `@security-focused`, `@a11y`, `@pipeline`, `@container`, `@schema`, `@eip`, `@fp`, `@db`, `@java`, `@kotlin`, `@rust`, `@docs-as-code`, …) bundle related principles for common stacks and languages. Many principles include **code examples and diagrams** — not just a definition, but a demonstration of the principle in practice.
+Every principle cites a verifiable source — book with ISBN, RFC, or paper with DOI. **53 shipped groups** (`@spring-boot`, `@react`, `@microservices`, `@security-focused`, `@a11y`, `@pipeline`, `@container`, `@schema`, `@eip`, `@fp`, `@db`, `@java`, `@kotlin`, `@rust`, `@docs-as-code`, `@xac`, …) bundle related principles for common stacks and languages. Many principles include **code examples and diagrams** — not just a definition, but a demonstration of the principle in practice.
 
 ---
 
@@ -108,4 +108,4 @@ Every principle cites a verifiable source — book with ISBN, RFC, or paper with
 
 ## Status
 
-v0.8.1 — proof of concept. 375 principles, 24 namespaces, 52 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/principles/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.11.0 — proof of concept. 375 principles, 24 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles/blob/main/DISCLAIMER.md). Contributions are welcome.
