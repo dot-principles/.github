@@ -1,14 +1,16 @@
 # .principles
 
-[![License: MIT](https://img.shields.io/badge/tooling-MIT-green.svg)](https://opensource.org/licenses/MIT) [![License: CC BY-SA 4.0](https://img.shields.io/badge/principles-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0/) [![GitHub release](https://img.shields.io/github/v/release/dot-principles/dot-principles)](https://github.com/dot-principles/dot-principles/releases)
+[![License: MIT](https://img.shields.io/badge/tooling-MIT-green.svg)](https://opensource.org/licenses/MIT) [![License: CC BY-SA 4.0](https://img.shields.io/badge/principles-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0/) [![GitHub release](https://img.shields.io/github/v/release/dot-principles/dot-principles.github.io)](https://github.com/dot-principles/dot-principles.github.io/releases)
 
 **Select the engineering principles you want your AI agent to apply — for code, docs, infrastructure, configuration, schemas, and pipelines.**
 
 A curated catalog of engineering principles, organized into a `.principles` hierarchy that projects declare to guide AI-assisted work across all "X as Code" artifact types.
 
-📦 **[.principles repository](https://github.com/dot-principles/dot-principles)** — principle catalog, groups, layer model, and slash commands
+🌐 **[dot-principles.github.io](https://dot-principles.github.io/)** — guided docs: Why → Examples → Getting Started → Commands → How It Works → Extending
 
-> 🎬 **New here?** See the [live demo walkthrough](https://github.com/dot-principles/dot-principles/blob/main/demo/presentation.md) for a quick tour.
+📦 **[.principles repository](https://github.com/dot-principles/dot-principles.github.io)** — principle catalog, groups, layer model, and slash commands
+
+> 🎬 **New here?** See the [live demo walkthrough](https://github.com/dot-principles/dot-principles.github.io/blob/main/demo/presentation.md) for a quick tour.
 
 ---
 
@@ -108,4 +110,4 @@ Every principle cites a verifiable source — book with ISBN, RFC, or paper with
 
 ## Status
 
-v0.11.0 — proof of concept. 375 principles, 24 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.13.1 — proof of concept. 375 principles, 32 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
