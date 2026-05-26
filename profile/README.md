@@ -110,4 +110,4 @@ Every principle cites a verifiable source — book with ISBN, RFC, or paper with
 
 ## Status
 
-v0.13.1 — proof of concept. 375 principles, 32 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.13.2 — proof of concept. 375 principles, 32 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
