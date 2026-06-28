@@ -1,18 +1,18 @@
 # AI Agent Instructions
 
-This is the **dot-principles/.github** repository — the GitHub organization profile
+This is the **dot-principles/.github** repository, the GitHub organization profile
 and community health files for the [dot-principles](https://github.com/dot-principles)
 organization.
 
 ---
 
-## Documentation — keep these files current
+## Documentation: keep these files current
 
 Every change must update the relevant documentation:
 
 | File | When to update |
 |------|----------------|
-| **`profile/README.md`** | Any change to the org's repos, tooling, principles, or community focus — this is the public face of the org on GitHub |
+| **`profile/README.md`** | Any change to the org's repos, tooling, principles, or community focus. This is the public face of the org on GitHub. |
 
 ---
 
