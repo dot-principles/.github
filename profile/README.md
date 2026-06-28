@@ -2,35 +2,35 @@
 
 [![License: MIT](https://img.shields.io/badge/tooling-MIT-green.svg)](https://opensource.org/licenses/MIT) [![License: CC BY-SA 4.0](https://img.shields.io/badge/principles-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0/) [![GitHub release](https://img.shields.io/github/v/release/dot-principles/dot-principles.github.io)](https://github.com/dot-principles/dot-principles.github.io/releases)
 
-**Select the engineering principles you want your AI agent to apply — for code, docs, infrastructure, configuration, schemas, and pipelines.**
+**Select the engineering principles you want your AI agent to apply, for code, docs, infrastructure, configuration, schemas, and pipelines.**
 
 A curated catalog of engineering principles, organized into a `.principles` hierarchy that projects declare to guide AI-assisted work across all "X as Code" artifact types.
 
-🌐 **[dot-principles.github.io](https://dot-principles.github.io/)** — guided docs: Why → Examples → Getting Started → Commands → How It Works → Extending
+**[dot-principles.github.io](https://dot-principles.github.io/)** - guided docs: Why → Examples → Getting Started → Commands → How It Works → Extending
 
-📦 **[.principles repository](https://github.com/dot-principles/dot-principles.github.io)** — principle catalog, groups, layer model, and slash commands
+**[.principles repository](https://github.com/dot-principles/dot-principles.github.io)** - principle catalog, groups, layer model, and slash commands
 
-> 🎬 **New here?** See the [live demo walkthrough](https://github.com/dot-principles/dot-principles.github.io/blob/main/demo/presentation.md) for a quick tour.
+> **New here?** See the [live demo walkthrough](https://github.com/dot-principles/dot-principles.github.io/blob/main/demo/presentation.md) for a quick tour.
 
 ---
 
-## 💡 Why `.principles`?
+## Why `.principles`?
 
 > *"The AI already knows everything. The question is: does it know what **you** care about?"*
 
 AI agents already know SOLID, GoF, OWASP, DDD, Clean Architecture, 12-Factor, and the rest. That's not the bottleneck. The bottleneck is that *knowing* all of this is not the same as *applying* the right subset of it to your specific project, your specific stack, and your specific risk profile.
 
-**`.principles` is the bridge between what the AI knows and what it should focus on.** It doesn't teach the AI — it gives it your *intent*. And this applies not just to source code, but to any artifact type treated as code: docs, infrastructure, configuration, schemas, pipelines.
+**`.principles` is the bridge between what the AI knows and what it should focus on.** It doesn't teach the AI, it gives it your *intent*. And this applies not just to source code, but to any artifact type treated as code: docs, infrastructure, configuration, schemas, pipelines.
 
-> 🎯 The AI writes the code. You bring the craft.
+> The AI writes the code. You bring the craft.
 
-Unlike a human reviewer, it applies all 375 principles with the same rigour to file 47 as to file 1 — never tired, never bored, never skipping a pattern it has seen a hundred times before.
+Unlike a human reviewer, it applies all 375 principles with the same rigour to file 47 as to file 1: never tired, never bored, never skipping a pattern it has seen a hundred times before.
 
 ---
 
-## 🗂️ Not just code — any artifact
+## Not just code - any artifact
 
-`.principles` is built for the **"X as Code"** world: *docs as code*, *infrastructure as code*, *configuration as code*, *pipeline as code*, *schema as code*. All of these live as [plain text in version control](https://github.com/Plain-Text-as-Code) — and all of them benefit from principled review.
+`.principles` is built for the **"X as Code"** world: *docs as code*, *infrastructure as code*, *configuration as code*, *pipeline as code*, *schema as code*. All of these live as [plain text in version control](https://github.com/Plain-Text-as-Code), and all of them benefit from principled review.
 
 The system detects the artifact type of the file being reviewed and loads the right principle stack automatically:
 
@@ -43,13 +43,13 @@ The system detects the artifact type of the file being reviewed and loads the ri
 | **Schema** | `.proto`, `.graphql`, `openapi.yaml`, `schema.sql`, … | Backward compatibility, self-describing, consistent naming, … |
 | **Pipeline** | `.github/workflows/`, `Jenkinsfile`, … | Idempotency, minimal permissions, no secrets in logs, … |
 
-Run `/dot-audit README.md` and you get doc-specific findings. Run `/dot-audit main.tf` and you get IaC-specific findings. The right principles fire for the right artifact — without any manual configuration.
+Run `/dot-audit README.md` and you get doc-specific findings. Run `/dot-audit main.tf` and you get IaC-specific findings. The right principles fire for the right artifact, without any manual configuration.
 
 ---
 
-## 🌳 A project is a tree of different worlds
+## A project is a tree of different worlds
 
-Place `.principles` files in your project — just like `.gitignore`, they cascade down the file tree and subdirectories can add, narrow, or suppress:
+Place `.principles` files in your project, just like `.gitignore`. They cascade down the file tree and subdirectories can add, narrow, or suppress:
 
 ```
 my-project/
@@ -66,11 +66,11 @@ my-project/
     └── .principles            ◄ 📝 (doc-specific principles — no security scanning in prose)
 ```
 
-Before coding or reviewing, the AI walks up from the file to the git root, merges the hierarchy (innermost wins), and loads the full principle content into its context — front-of-mind, the way a senior developer carries their internalized knowledge into every session.
+Before coding or reviewing, the AI walks up from the file to the git root, merges the hierarchy (innermost wins), and loads the full principle content into its context, front-of-mind, the way a senior developer carries their internalized knowledge into every session.
 
 ---
 
-## 🔄 Shift left — catch it while you're working, not after
+## Shift left - catch it while you're working, not after
 
 `.principles` supports a **shift-left quality loop** where principles are active *before and during* work, not just when auditing:
 
@@ -78,36 +78,36 @@ Before coding or reviewing, the AI walks up from the file to the git root, merge
 🔭 /dot-scout  →  ⚡ /dot-prime  →  ✍️ work  →  🔎 /dot-audit  →  🔧 fix  →  🔎 /dot-audit  →  ✅ done
 ```
 
-These are **AI commands, not CLI tools** — you use natural language:
+These are **AI commands, not CLI tools** - you use natural language:
 
 | Command | What it does |
 |---|---|
-| `/dot-scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits per-group principle files to `.github/instructions/` (Copilot Code Review) and `.claude/rules/` (Claude Code) — one file per active group, each targeting only the relevant file globs |
-| `/dot-prime` | Loads the full principle hierarchy into the AI's context before you write a line — discovers principles from per-group files (fast path) if available, otherwise walks the `.principles` tree |
-| `/dot-audit current changes` | Reviews only what changed since last commit, grouped by severity — discovers principles from per-group files (fast path) if available |
-| `/dot-audit the payment module` | Reviews a specific area — you describe it, the AI finds it |
+| `/dot-scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits per-group principle files to `.github/instructions/` (Copilot Code Review) and `.claude/rules/` (Claude Code), one file per active group, each targeting only the relevant file globs |
+| `/dot-prime` | Loads the full principle hierarchy into the AI's context before you write a line. Discovers principles from per-group files (fast path) if available, otherwise walks the `.principles` tree |
+| `/dot-audit current changes` | Reviews only what changed since last commit, grouped by severity. Discovers principles from per-group files (fast path) if available |
+| `/dot-audit the payment module` | Reviews a specific area, you describe it, the AI finds it |
 | `/dot-audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
 
-`/dot-prime` is the key step: principles active *while* you work, not just *after*. `/dot-audit` is the quality gut-check — not just bugs, but *"is this artifact well-principled?"*
+`/dot-prime` is the key step: principles active *while* you work, not just *after*. `/dot-audit` is the quality gut-check, not just for bugs but *"is this artifact well-principled?"*
 
 ---
 
-## 📚 What's included
+## What's included
 
 **375 principles across 24 namespaces:**
 
 **SOLID · Gang of Four · GRASP · DRY · KISS · YAGNI · Clean Architecture · DDD · CQRS · Event Sourcing · 12-Factor · OWASP Top 10 · Functional Programming · Database Design · Security Architecture (all 8 Saltzer & Schroeder) · Package Design · Concurrency · Performance · Observability · API Design · Testing Strategy · Enterprise Integration Patterns · Continuous Delivery · Pipeline · Schema Design · Configuration · Documentation · Accessibility (WCAG 2.1) · Error Handling · All 22 Fowler Code Smells · and more**
 
-Every principle cites a verifiable source — book with ISBN, RFC, or paper with DOI. **53 shipped groups** (`@spring-boot`, `@react`, `@microservices`, `@security-focused`, `@a11y`, `@pipeline`, `@container`, `@schema`, `@eip`, `@fp`, `@db`, `@java`, `@kotlin`, `@rust`, `@docs-as-code`, `@xac`, …) bundle related principles for common stacks and languages. Many principles include **code examples and diagrams** — not just a definition, but a demonstration of the principle in practice.
+Every principle cites a verifiable source: book with ISBN, RFC, or paper with DOI. **53 shipped groups** (`@spring-boot`, `@react`, `@microservices`, `@security-focused`, `@a11y`, `@pipeline`, `@container`, `@schema`, `@eip`, `@fp`, `@db`, `@java`, `@kotlin`, `@rust`, `@docs-as-code`, `@xac`, …) bundle related principles for common stacks and languages. Many principles include **code examples and diagrams**, not just a definition but a demonstration of the principle in practice.
 
 ---
 
-## 📦 Related
+## Related
 
-- [**Plain-Text-as-Code**](https://github.com/Plain-Text-as-Code) — the manifest behind the approach: version-controlled plain text as a first-class engineering practice
+- [**Plain-Text-as-Code**](https://github.com/Plain-Text-as-Code) - the manifest behind the approach: version-controlled plain text as a first-class engineering practice
 
 ---
 
 ## Status
 
-v0.13.2 — proof of concept. 375 principles, 32 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.13.2, proof of concept. 375 principles, 32 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
