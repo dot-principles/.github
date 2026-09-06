@@ -75,7 +75,7 @@ Before coding or reviewing, the AI walks up from the file to the git root, merge
 `.principles` supports a **shift-left quality loop** where principles are active *before and during* work, not just when auditing:
 
 ```
-🔭 /dot-scout  →  ⚡ /dot-prime  →  ✍️ work  →  🔎 /dot-audit  →  🔧 fix  →  🔎 /dot-audit  →  ✅ done
+🔭 /dot-scout  →  ✍️ work  →  🔎 /dot-audit  →  🔧 fix  →  🔎 /dot-audit  →  ✅ done
 ```
 
 These are **AI commands, not CLI tools** - you use natural language:
@@ -83,12 +83,11 @@ These are **AI commands, not CLI tools** - you use natural language:
 | Command | What it does |
 |---|---|
 | `/dot-scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits per-group principle files to `.github/instructions/` (Copilot Code Review) and `.claude/rules/` (Claude Code), one file per active group, each targeting only the relevant file globs |
-| `/dot-prime` | Loads the full principle hierarchy into the AI's context before you write a line. Discovers principles from per-group files (fast path) if available, otherwise walks the `.principles` tree |
 | `/dot-audit current changes` | Reviews only what changed since last commit, grouped by severity. Discovers principles from per-group files (fast path) if available |
 | `/dot-audit the payment module` | Reviews a specific area, you describe it, the AI finds it |
 | `/dot-audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
 
-`/dot-prime` is the key step: principles active *while* you work, not just *after*. `/dot-audit` is the quality gut-check, not just for bugs but *"is this artifact well-principled?"*
+`/dot-scout` keeps the selected principles and review instructions synchronized with the project. `/dot-audit` is the quality gut-check, not just for bugs but *"is this artifact well-principled?"*
 
 ---
 
@@ -110,4 +109,4 @@ Every principle cites a verifiable source: book with ISBN, RFC, or paper with DO
 
 ## Status
 
-v0.13.2, proof of concept. 375 principles, 32 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.14.0, proof of concept. 375 principles, 32 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.

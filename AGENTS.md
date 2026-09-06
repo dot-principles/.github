@@ -32,8 +32,8 @@ This repo has `.principles` files that define which principles govern AI-assiste
 here. The content is primarily documentation so principles focus on clarity, accuracy,
 and audience awareness.
 
-Run `/dot-prime` before starting any significant change:
+Run `/dot-scout` before starting any significant change to refresh generated principle files:
 
 ```
-/dot-prime
+/dot-scout
 ```
