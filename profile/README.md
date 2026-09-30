@@ -63,7 +63,7 @@ my-project/
 ├── infra/
 │   └── .principles            ◄ 🏗️  CODE-AR-INFRASTRUCTURE-AS-CODE + CODE-AR-IMMUTABLE-INFRASTRUCTURE
 └── docs/
-    └── .principles            ◄ 📝 (doc-specific principles — no security scanning in prose)
+    └── .principles            ◄ 📝 (doc-specific principles - no security scanning in prose)
 ```
 
 Before coding or reviewing, the AI walks up from the file to the git root, merges the hierarchy (innermost wins), and loads the full principle content into its context, front-of-mind, the way a senior developer carries their internalized knowledge into every session.
@@ -82,7 +82,7 @@ These are **AI commands, not CLI tools** - you use natural language:
 
 | Command | What it does |
 |---|---|
-| `/dot-scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits per-group principle files to `.github/instructions/` (Copilot Code Review) and `.claude/rules/` (Claude Code), one file per active group, each targeting only the relevant file globs |
+| `/dot-scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits review instruction files: one file per active group in `.github/instructions/` for Copilot Code Review, each targeting only the relevant file globs, and a `REVIEW.md` for Claude Code Review |
 | `/dot-audit current changes` | Reviews only what changed since last commit, grouped by severity. Discovers principles from per-group files (fast path) if available |
 | `/dot-audit the payment module` | Reviews a specific area, you describe it, the AI finds it |
 | `/dot-audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
@@ -109,4 +109,4 @@ Every principle cites a verifiable source: book with ISBN, RFC, or paper with DO
 
 ## Status
 
-v0.14.0, proof of concept. 375 principles, 32 namespaces, 53 groups. Install is repo-only (`./install.sh all <project-dir>`); supports Claude Code, GitHub Copilot, and OpenAI Codex. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.15.0, proof of concept. 375 principles, 24 namespaces, 53 groups. Install is repo-only (`./install.sh <project-dir>` asks which tools you use; `./install.sh vendor <project-dir>` refreshes it); supports Claude Code, GitHub Copilot, and OpenAI Codex. You can add your own principles, for example company standards, with an extra catalog instead of forking. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
