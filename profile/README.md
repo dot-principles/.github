@@ -24,7 +24,7 @@ AI agents already know SOLID, GoF, OWASP, DDD, Clean Architecture, 12-Factor, an
 
 > The AI writes the code. You bring the craft.
 
-Unlike a human reviewer, it applies all 375 principles with the same rigour to file 47 as to file 1: never tired, never bored, never skipping a pattern it has seen a hundred times before.
+Unlike a human reviewer, it applies every selected principle with the same rigour to file 47 as to file 1: never tired, never bored, never skipping a pattern it has seen a hundred times before.
 
 ---
 
@@ -93,11 +93,11 @@ These are **AI commands, not CLI tools** - you use natural language:
 
 ## What's included
 
-**375 principles across 24 namespaces:**
+**What the catalog covers:**
 
 **SOLID · Gang of Four · GRASP · DRY · KISS · YAGNI · Clean Architecture · DDD · CQRS · Event Sourcing · 12-Factor · OWASP Top 10 · Functional Programming · Database Design · Security Architecture (all 8 Saltzer & Schroeder) · Package Design · Concurrency · Performance · Observability · API Design · Testing Strategy · Enterprise Integration Patterns · Continuous Delivery · Pipeline · Schema Design · Configuration · Documentation · Accessibility (WCAG 2.1) · Error Handling · All 22 Fowler Code Smells · and more**
 
-Every principle cites a verifiable source: book with ISBN, RFC, or paper with DOI. **53 shipped groups** (`@spring-boot`, `@react`, `@microservices`, `@security-focused`, `@a11y`, `@pipeline`, `@container`, `@schema`, `@eip`, `@fp`, `@db`, `@java`, `@kotlin`, `@rust`, `@docs-as-code`, `@xac`, …) bundle related principles for common stacks and languages. Many principles include **code examples and diagrams**, not just a definition but a demonstration of the principle in practice.
+Every principle cites a verifiable source: book with ISBN, RFC, or paper with DOI. **Shipped groups** (`@spring-boot`, `@react`, `@microservices`, `@security-focused`, `@a11y`, `@pipeline`, `@container`, `@schema`, `@eip`, `@fp`, `@db`, `@java`, `@kotlin`, `@rust`, `@docs-as-code`, `@xac`, …) bundle related principles for common stacks and languages. Many principles include **code examples and diagrams**, not just a definition but a demonstration of the principle in practice.
 
 ---
 
@@ -109,4 +109,4 @@ Every principle cites a verifiable source: book with ISBN, RFC, or paper with DO
 
 ## Status
 
-v0.15.0, proof of concept. 375 principles, 24 namespaces, 53 groups. Install is repo-only (`./install.sh <project-dir>` asks which tools you use; `./install.sh vendor <project-dir>` refreshes it); supports Claude Code, GitHub Copilot, and OpenAI Codex. You can add your own principles, for example company standards, with an extra catalog instead of forking. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.15.0, proof of concept. Install is repo-only (`./install.sh <project-dir>` asks which tools you use; `./install.sh vendor <project-dir>` refreshes it); supports Claude Code, GitHub Copilot, and OpenAI Codex. You can add your own principles, for example company standards, with an extra catalog instead of forking. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
