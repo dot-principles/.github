@@ -49,7 +49,7 @@ Run `/dot-audit README.md` and you get doc-specific findings. Run `/dot-audit ma
 
 ## A project is a tree of different worlds
 
-Place `.principles` files in your project, just like `.gitignore`. They cascade down the file tree and subdirectories can add, narrow, or suppress:
+Place `.principles` files in your project, just like `.gitignore`. They cascade down the file tree, and the deepest file wins: a subdirectory can add, narrow, or suppress:
 
 ```
 my-project/
@@ -66,7 +66,7 @@ my-project/
     └── .principles            ◄ 📝 (doc-specific principles - no security scanning in prose)
 ```
 
-Before coding or reviewing, the AI walks up from the file to the git root, merges the hierarchy (innermost wins), and loads the full principle content into its context, front-of-mind, the way a senior developer carries their internalized knowledge into every session.
+Before coding or reviewing, the AI walks up from the file to the git root, merges the hierarchy (the deepest file wins), and loads the principle content into its context, front-of-mind, the way a senior developer carries their internalized knowledge into every session.
 
 ---
 
@@ -82,8 +82,8 @@ These are **AI commands, not CLI tools** - you use natural language:
 
 | Command | What it does |
 |---|---|
-| `/dot-scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then emits review instruction files: one file per active group in `.github/instructions/` for Copilot Code Review, each targeting only the relevant file globs, and a `REVIEW.md` for Claude Code Review |
-| `/dot-audit current changes` | Reviews only what changed since last commit, grouped by severity. Discovers principles from per-group files (fast path) if available |
+| `/dot-scout` | Analyzes your project, detects stack and domain, writes `.principles` files, then generates the review files: `.agents/instructions/review.md` with a short block in `AGENTS.md` (any agent that reads `AGENTS.md`), `.github/instructions/` for Copilot Code Review and `REVIEW.md` for Claude Code Review. `/dot-scout --explain <path>` shows which principles apply to a path and why |
+| `/dot-audit current changes` | Reviews only what changed since last commit, grouped by severity, against the principles that apply to each subtree |
 | `/dot-audit the payment module` | Reviews a specific area, you describe it, the AI finds it |
 | `/dot-audit DDD on src/orders` | Forces DDD principles on a target, ignoring `.principles` files |
 
@@ -101,6 +101,19 @@ Every principle cites a verifiable source: book with ISBN, RFC, or paper with DO
 
 ---
 
+## Governance for organizations
+
+Publish your standards as an extra catalog with an `org.principles` file and reference it from each project, pinned to a tag or commit:
+
+```
+:extends https://git.acme.com/acme-principles.git@v1.4.0
+@acme-backend
+```
+
+`:lock` in `org.principles` makes a principle required: a project cannot exclude it, and `/dot-audit` reports the attempt. `:waive ID until YYYY-MM-DD "reason"` records a dated, documented exception that expires. Everything is plain text in version control, so a change to a standard is a reviewable diff. See [Governance](https://dot-principles.github.io/governance).
+
+---
+
 ## Related
 
 - [**Plain-Text-as-Code**](https://github.com/Plain-Text-as-Code) - the manifest behind the approach: version-controlled plain text as a first-class engineering practice
@@ -109,4 +122,4 @@ Every principle cites a verifiable source: book with ISBN, RFC, or paper with DO
 
 ## Status
 
-v0.15.0, proof of concept. Install is repo-only (`./install.sh <project-dir>` asks which tools you use; `./install.sh vendor <project-dir>` refreshes it); supports Claude Code, GitHub Copilot, and OpenAI Codex. You can add your own principles, for example company standards, with an extra catalog instead of forking. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
+v0.16.0, proof of concept. Install is repo-only (`./install.sh <project-dir>` asks which tools you use; `./install.sh vendor <project-dir>` refreshes it); supports Claude Code, GitHub Copilot, and OpenAI Codex, and reviews work in other agents that read `AGENTS.md`. You can add your own principles, for example company standards, with an extra catalog instead of forking, and enforce them with an org baseline, locks and waivers. `./uninstall.sh <project-dir> --purge` removes everything. `/dot-audit` includes an optional gated fix-to-PR workflow (fix → commit → push → PR) with mandatory approval at each phase. See the [Disclaimer](https://github.com/dot-principles/dot-principles.github.io/blob/main/DISCLAIMER.md). Contributions are welcome.
